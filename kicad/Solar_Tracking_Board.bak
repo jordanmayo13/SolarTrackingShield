@@ -692,11 +692,11 @@ Connection ~ 9600 3300
 Wire Wire Line
 	7300 3500 7200 3500
 Wire Wire Line
-	7300 3600 7200 3600
+	7000 3600 7300 3600
 Wire Wire Line
 	8350 3500 8250 3500
 Wire Wire Line
-	8350 3600 8250 3600
+	8050 3600 8350 3600
 Wire Wire Line
 	8200 2700 8100 2700
 Wire Wire Line
@@ -743,4 +743,34 @@ Text GLabel 8100 2700 0    39   Input ~ 0
 5
 Text GLabel 7200 2700 0    39   Input ~ 0
 6
+Text GLabel 7200 3500 0    39   Input ~ 0
+SolarPWR_IN
+Text GLabel 8250 3500 0    39   Input ~ 0
+SolarPWR_OUT
+$Comp
+L GND #PWR?
+U 1 1 5A56D6C7
+P 7000 3750
+F 0 "#PWR?" H 7000 3500 50  0001 C CNN
+F 1 "GND" H 7000 3600 50  0000 C CNN
+F 2 "" H 7000 3750 50  0001 C CNN
+F 3 "" H 7000 3750 50  0001 C CNN
+	1    7000 3750
+	1    0    0    -1  
+$EndComp
+$Comp
+L GND #PWR?
+U 1 1 5A56D717
+P 8050 3750
+F 0 "#PWR?" H 8050 3500 50  0001 C CNN
+F 1 "GND" H 8050 3600 50  0000 C CNN
+F 2 "" H 8050 3750 50  0001 C CNN
+F 3 "" H 8050 3750 50  0001 C CNN
+	1    8050 3750
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	8050 3750 8050 3600
+Wire Wire Line
+	7000 3600 7000 3750
 $EndSCHEMATC
