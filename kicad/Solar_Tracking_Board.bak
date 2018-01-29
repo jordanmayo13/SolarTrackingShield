@@ -811,8 +811,6 @@ Text GLabel 6800 2850 0    39   Input ~ 0
 6
 Text GLabel 6800 3650 0    39   Input ~ 0
 SolarPWR_IN
-Text GLabel 7850 3650 0    39   Input ~ 0
-SolarPWR_OUT
 $Comp
 L GND #PWR016
 U 1 1 5A56D6C7
@@ -843,4 +841,6 @@ Text Notes 8350 7500 2    39   ~ 0
 Arduino Shield for Solar Tracking
 Text Notes 10650 7650 2    39   ~ 0
 1
+Text GLabel 7850 3650 0    39   Input ~ 0
+SolarPWR_IN
 $EndSCHEMATC

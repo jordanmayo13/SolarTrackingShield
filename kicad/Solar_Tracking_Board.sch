@@ -292,7 +292,7 @@ U 1 1 5A54FBCC
 P 7100 3650
 F 0 "J11" H 7100 3750 50  0000 C CNN
 F 1 "Conn_01x02_Female" H 7100 3450 50  0000 C CNN
-F 2 "Connectors_Molex:Molex_NanoFit_1x02x2.50mm_Straight" H 7100 3650 50  0001 C CNN
+F 2 "Pin_Headers:Pin_Header_Straight_1x02_Pitch2.54mm" H 7100 3650 50  0001 C CNN
 F 3 "" H 7100 3650 50  0001 C CNN
 	1    7100 3650
 	1    0    0    -1  
@@ -303,7 +303,7 @@ U 1 1 5A54FC18
 P 8150 3650
 F 0 "J13" H 8150 3750 50  0000 C CNN
 F 1 "Conn_01x02_Female" H 8150 3450 50  0000 C CNN
-F 2 "Connectors_Molex:Molex_NanoFit_1x02x2.50mm_Straight" H 8150 3650 50  0001 C CNN
+F 2 "Pin_Headers:Pin_Header_Straight_1x02_Pitch2.54mm" H 8150 3650 50  0001 C CNN
 F 3 "" H 8150 3650 50  0001 C CNN
 F 4 "105309-1102" H 8150 3650 60  0001 C CNN "P#"
 	1    8150 3650
