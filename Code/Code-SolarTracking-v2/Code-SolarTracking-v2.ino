@@ -1,17 +1,22 @@
 /* Solar Tracking Shield Implementation
- *     ENGI5800: Electrical Engineering Design Project
- *     Sensor Bases Solar Tracker
- *  
- *  Mitchell Stride (201517901)
- *  Jordan Mayo     (201505872)
- *            February 27, 2018
- */
+       ENGI5800: Electrical Engineering Design Project
+       Sensor Based Solar Tracker
 
-/*To Do
- * Setup Function 
- * Avg
- */
- 
+    Mitchell Stride (201517901)
+    Jordan Mayo     (201505872)
+              February 27, 2018
+
+              LDRs         1----------------3
+                           -   ----------   -
+                           2----------------4
+*/
+
+/*To Do:
+   - Setup Function
+   - Avg
+   - Real time track mode
+*/
+
 #include <Servo.h>
 
 Servo zservo;  // create servo object for z servo
@@ -25,10 +30,10 @@ int LDR2;
 int LDR3;
 int LDR4;
 
-int left = LDR1 - LDR2;
-int front = LDR3 - LDR4;
-int right = LDR1 - LDR3;
-int back = LDR2 - LDR4;
+int left;
+int front;
+int right;
+int back;
 
 void setup() {
   zservo.attach(5);
@@ -36,55 +41,40 @@ void setup() {
 }
 
 void loop() {
+  //Read all LDR sensors
   LDR1 = analogRead(A1);
   LDR2 = analogRead(A2);
   LDR3 = analogRead(A3);
   LDR4 = analogRead(A4);
 
-  left = LDR1 - LDR2;
-  front = LDR3 - LDR4;
-  right = LDR1 - LDR3;
-  back = LDR2 - LDR4;
+  //Implement tracking algorithm
+  left = ((LDR3+LDR4)/2) - ((LDR1+LDR2)/2);
+  right = ((LDR1+LDR2)/2) - ((LDR3+LDR4)/2);
+  front = ((LDR2+LDR4)/2) - ((LDR1+LDR3)/2);
+  back = ((LDR1+LDR3)/2) - ((LDR2+LDR4)/2);
 
-  if(abs(right)<100 && abs(front)<100){
-    delay(10);
-    }
-
-    else{
-    //if(left>0){
-     // zpos+=1;
-     // zservo.write(zpos);
-     // delay(10);
-      //}
-
-    //if(left<0){
-      //zpos-=1;
-      //zservo.write(zpos);
-      //delay(10);
-     // }
-  
-    if(right>0){
+  if (abs(left - right) < 100 && abs(front - back) < 100) {
+    delay(50);      //do nothing if position is correct
+  } else {         //else adjust panel towards sun
+    if (right > 0) {
       zpos++;
       zservo.write(zpos);
       delay(50);
-      }
-
-    if(right<0){
+    }
+    if (right < 0) {
       zpos--;
       zservo.write(zpos);
       delay(50);
-      }
-
-    if(front>0){
+    }
+    if (front > 0) {
       tiltpos--;
       tiltservo.write(tiltpos);
       delay(50);
-      }
-
-     if(front<0){
+    }
+    if (front < 0) {
       tiltpos++;
       tiltservo.write(tiltpos);
       delay(50);
-      }
-   }
+    }
+  }
 }
